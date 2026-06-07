@@ -1,0 +1,14 @@
+# Dependensi untuk Raspberry Pi (64-bit OS)
+# Install: pip install -r requirements-pi.txt
+#
+# Catatan:
+# - Gunakan Raspberry Pi OS 64-bit (bukan 32-bit) — onnxruntime tidak punya wheel untuk ARM32
+# - opencv-python-headless tidak butuh GUI/display, cocok untuk server headless
+# - Versi tidak di-pin karena wheel ARM tersedia tergantung versi pip/platform
+
+opencv-python-headless
+numpy>=1.24.0
+PyYAML>=6.0
+onnxruntime>=1.16.0
+flask>=2.3.0
+pyserial>=3.5

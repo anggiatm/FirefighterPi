@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Conda
+.conda/
+
+# Runtime artifacts
+servo_calibration.json
+
+# Dataset & captured images
+datasets/
+
+# Model weights (binary, large files)
+models/**/*.pt
+models/**/*.onnx
+detect/
+
+# OS
+.DS_Store
+Thumbs.db

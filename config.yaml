@@ -1,0 +1,32 @@
+camera:
+  device: 0
+  width: 640
+  height: 480
+  fps: 30
+
+detection:
+  model: models/fire.pt
+  conf_threshold: 0.5
+  iou_threshold: 0.45
+  frame_skip: 3
+  target_class: fire
+
+servo:
+  pan_pin: 17
+  tilt_pin: 18
+  pan_min: 0
+  pan_max: 180
+  tilt_min: 0
+  tilt_max: 180
+  step_delay: 0.02
+
+pump:
+  relay_pin: 22
+  solenoid_pin: 23
+  spray_duration: 3.0
+
+mapping:
+  center_x: 320
+  center_y: 240
+  fov_h: 60
+  fov_v: 45
