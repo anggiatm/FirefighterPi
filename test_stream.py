@@ -11,6 +11,7 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, CAM_HEIGHT)
 
 if not cap.isOpened():
     raise RuntimeError("Cannot open camera")
+print(f"Kamera terkoneksi: ID={CAMERA_ID}, resolusi={CAM_WIDTH}x{CAM_HEIGHT}")
 
 app = Flask(__name__)
 
