@@ -25,7 +25,43 @@ def generate_frames():
 
 @app.route('/')
 def index():
-    return '<html><body style="margin:0;background:#000"><img src="/video_feed" style="width:100%"></body></html>'
+    return f"""<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Test Stream</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+        body {{ background: #111; color: #fff; font-family: Arial, sans-serif;
+                display: flex; flex-direction: column; align-items: center;
+                min-height: 100vh; padding: 20px; }}
+        h1 {{ font-size: 1.2em; color: #0cf; margin-bottom: 4px; letter-spacing: 1px; }}
+        .badge {{ font-size: 12px; color: #aaa; margin-bottom: 16px; }}
+        .badge span {{ background: #222; border: 1px solid #333; border-radius: 4px;
+                       padding: 2px 8px; margin: 0 3px; }}
+        .stream-wrap {{ position: relative; border: 2px solid #0cf;
+                        border-radius: 8px; overflow: hidden;
+                        box-shadow: 0 0 20px rgba(0,200,255,0.2); }}
+        img {{ display: block; max-width: 100%; width: 640px; }}
+        .dot {{ display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+                background: #0f0; margin-right: 6px;
+                animation: blink 1.2s infinite; }}
+        @keyframes blink {{ 0%,100%{{opacity:1}} 50%{{opacity:0.2}} }}
+        .status {{ margin-top: 12px; font-size: 13px; color: #aaa; }}
+    </style>
+</head>
+<body>
+    <h1>📷 Camera Test Stream</h1>
+    <div class="badge">
+        <span>Camera ID: {CAMERA_ID}</span>
+        <span>{CAM_WIDTH} × {CAM_HEIGHT}</span>
+    </div>
+    <div class="stream-wrap">
+        <img src="/video_feed" alt="stream">
+    </div>
+    <div class="status"><span class="dot"></span>Live</div>
+</body>
+</html>"""
 
 @app.route('/video_feed')
 def video_feed():
