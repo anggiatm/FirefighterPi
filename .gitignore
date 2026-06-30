@@ -12,8 +12,6 @@ env/
 # Runtime artifacts
 servo_calibration.json
 
-# Dataset & captured images
-datasets/
 
 # Model weights — .pt tidak di-track (besar), .onnx di-track untuk deployment
 models/**/*.pt
