@@ -65,7 +65,7 @@ def _init_serial():
     if sys.platform == "win32":
         candidates = [f"COM{i}" for i in range(3, 13)]
     else:
-        candidates = ["/dev/ttyS0", "/dev/ttyAMA0", "/dev/ttyUSB0"]
+        candidates = ["/dev/ttyUSB0", "/dev/ttyS0", "/dev/ttyAMA0"]
 
     for port in candidates:
         try:
@@ -231,7 +231,7 @@ def calculate_angles(real_x: float, real_y: float) -> tuple[int, int]:
     dx = (real_x - CENTER_REAL_X) + OFFSET_X
     dy = (CENTER_REAL_Y - real_y) + OFFSET_Y
     pan_deg  = 90.0 + math.degrees(math.atan2(dx, dy))
-    tilt_deg = 90.0 - math.degrees(math.atan2(math.sqrt(dx**2 + dy**2), CEILING_HEIGHT))
+    tilt_deg = 90.0 + math.degrees(math.atan2(math.sqrt(dx**2 + dy**2), CEILING_HEIGHT))
     return int(max(0.0, min(180.0, pan_deg))), int(max(0.0, min(180.0, tilt_deg)))
 
 def update_action_state_machine(target_boxes):
